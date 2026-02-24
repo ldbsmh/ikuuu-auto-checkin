@@ -1,0 +1,12 @@
+name: Clean old runs
+on:
+  workflow_dispatch:
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          retain_days: 1
+          delete_workflow_pattern: IKUUU-Auto-Checkin.yml
